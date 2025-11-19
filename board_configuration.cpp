@@ -15,6 +15,11 @@ Gpio getWarningLedPin() {
 
 // board-specific configuration setup
 static void customBoardDefaultConfiguration() {
+
+	bool isHip9011Enabled : 1 {};
+    Gpio hip9011CsPin;
+    Gpio hip9011IntHoldPin;
+    pin_output_mode_e hip9011IntHoldPinMode;
     // engineConfiguration->injectionPins[0] = Gpio::F13;
     // engineConfiguration->ignitionPins[0] = Gpio::E15;
 
