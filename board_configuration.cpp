@@ -13,8 +13,13 @@ Gpio getWarningLedPin() {
 	return Gpio::Unassigned;
 }
 
+
+
 // board-specific configuration setup
 static void customBoardDefaultConfiguration() {
+
+	// MC33810/MCZ33810 Add example.
+	 engineConfiguration->mc33810_cs[0] = Gpio::C5; //MC33810 CS Pin is PC5
 
     // engineConfiguration->injectionPins[0] = Gpio::F13;
     // engineConfiguration->ignitionPins[0] = Gpio::E15;
