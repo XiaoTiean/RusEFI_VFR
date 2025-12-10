@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "board_overrides.h"
+#include "kline.h"
 
 Gpio getCommsLedPin() {
 	return Gpio::Unassigned;
@@ -17,12 +18,11 @@ Gpio getWarningLedPin() {
 
 // board-specific configuration setup
 static void customBoardDefaultConfiguration() {
+
+	
 	// K-Line Pin set
 	efiSetPadMode("K-Line UART RX", Gpio::B11, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
     efiSetPadMode("K-Line UART TX", Gpio::B10, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
-
-	// MC33810/MCZ33810 Add example.
-	 engineConfiguration->mc33810_cs[0] = Gpio::C5; //MC33810 CS Pin is PC5
 
     // engineConfiguration->injectionPins[0] = Gpio::F13;
     // engineConfiguration->ignitionPins[0] = Gpio::E15;
