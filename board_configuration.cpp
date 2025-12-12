@@ -2,6 +2,8 @@
 #include "board_overrides.h"
 #include "kline.h"
 
+
+
 Gpio getCommsLedPin() {
 	return Gpio::Unassigned;
 }
@@ -19,10 +21,13 @@ Gpio getWarningLedPin() {
 // board-specific configuration setup
 static void customBoardDefaultConfiguration() {
 
+// K-Line Pin set	
+#define KLINE_SERIAL_DEVICE_RX B11
+#define KLINE_SERIAL_DEVICE_RX B10
 	
-	// K-Line Pin set
-	efiSetPadMode("K-Line UART RX", Gpio::B11, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
-    efiSetPadMode("K-Line UART TX", Gpio::B10, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
+	
+	//efiSetPadMode("K-Line UART RX", Gpio::B11, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
+    //efiSetPadMode("K-Line UART TX", Gpio::B10, PAL_MODE_ALTERNATE(TS_SERIAL_AF));
 
     // engineConfiguration->injectionPins[0] = Gpio::F13;
     // engineConfiguration->ignitionPins[0] = Gpio::E15;
